@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\50416902\\Downloads\\TP05-Login-y-Registro\\TP05.csproj": {}
+    "C:\\Users\\50049697\\Downloads\\TP05-Login-y-Registro\\TP05.csproj": {}
   },
   "projects": {
-    "C:\\Users\\50416902\\Downloads\\TP05-Login-y-Registro\\TP05.csproj": {
+    "C:\\Users\\50049697\\Downloads\\TP05-Login-y-Registro\\TP05.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\50416902\\Downloads\\TP05-Login-y-Registro\\TP05.csproj",
+        "projectUniqueName": "C:\\Users\\50049697\\Downloads\\TP05-Login-y-Registro\\TP05.csproj",
         "projectName": "TP05",
-        "projectPath": "C:\\Users\\50416902\\Downloads\\TP05-Login-y-Registro\\TP05.csproj",
-        "packagesPath": "C:\\Users\\50416902\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\50416902\\Downloads\\TP05-Login-y-Registro\\obj\\",
+        "projectPath": "C:\\Users\\50049697\\Downloads\\TP05-Login-y-Registro\\TP05.csproj",
+        "packagesPath": "C:\\Users\\50049697\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\50049697\\Downloads\\TP05-Login-y-Registro\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\50416902\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\50049697\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
