@@ -6,10 +6,14 @@ namespace TP05.Controllers;
 
 public class UsuarioController : Controller
 {
-    public IActionResult Login()
-    {
+
+    public IActionResult Index(){
+        return View();
+    } 
+    public IActionResult Login(){
         return View();
     }
+
 
 
     [HttpPost] public IActionResult Login(Usuario usuario)
