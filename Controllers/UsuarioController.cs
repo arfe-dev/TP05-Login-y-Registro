@@ -14,22 +14,23 @@ public class UsuarioController : Controller
 
     [HttpPost] public IActionResult Login(Usuario usuario)
     {
-        // Después vamos a consultar la Base de Datos
-        // para comprobar NombreUsuario y Contraseña.
-
-        // EJEMPLO TEMPORAL:
-        if (usuario.NombreUsuario == "admin" && usuario.Contraseña == "1234")
+        if (usuario == null)
         {
-            HttpContext.Session.SetString("Usuario", usuario.NombreUsuario);
+            ViewBag.Error = "Debe completar los datos del login.";
+            return View();
+        }
 
+        BD bd = new BD();
+        Usuario usuarioBD = bd.ObtenerUsuario(usuario.NombreUsuario);
+
+        if (usuarioBD != null && usuarioBD.Contraseña == usuario.Contraseña)
+        {
+            HttpContext.Session.SetString("Usuario", usuarioBD.NombreUsuario);
             return RedirectToAction("Bienvenida");
         }
-        else{
-            ViewBag.Error = "Usuario o contraseña incorrectos";
-            return View(usuario);
-        }
-       
-        
+
+        ViewBag.Error = "Usuario o contraseña incorrectos";
+        return View(usuario);
     }
 
     public IActionResult Registro()
@@ -41,11 +42,17 @@ public class UsuarioController : Controller
 
     [HttpPost] public IActionResult Registro(Usuario usuario)
     {
-        // Acá después vamos a comprobar en la BD
-        // si el NombreUsuario ya existe.
+        //Comprobar la base de datos para ver si el nombre de usuario ya existe. Si existe, retornar la vista Registro con un mensaje de error, sino guardar el usuario en la base de datos y redirigir a la vista Login.
+        BD bd = new BD();
+        Usuario usuarioBD = bd.ObtenerUsuario(usuario.NombreUsuario);
 
-        // Y después guardar el usuario en la BD.
+        if (usuarioBD != null)
+        {
+            ViewBag.Error = "El nombre de usuario ya existe.";
+            return View(usuario);
+        }
 
+        bd.RegistrarUsuario(usuario);
         return RedirectToAction("Login");
     }
 
