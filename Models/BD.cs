@@ -36,4 +36,20 @@ public void RegistrarUsuario(Usuario usuario)
 }
 
 
+
+public bool ExisteUsuario(string nombreUsuario)
+{
+    using (SqlConnection connection = new SqlConnection(_connectionString))
+    {
+        string query = @"SELECT * FROM Usuarios WHERE nombreUsuario = @nombreUsuario";
+
+        Usuario usuario = connection.QueryFirstOrDefault<Usuario>(
+            query,
+            new { nombreUsuario }
+        );
+
+        return usuario != null;
+    }
+}
+
 }

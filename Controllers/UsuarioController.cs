@@ -48,9 +48,7 @@ public class UsuarioController : Controller
     {
         //Comprobar la base de datos para ver si el nombre de usuario ya existe. Si existe, retornar la vista Registro con un mensaje de error, sino guardar el usuario en la base de datos y redirigir a la vista Login.
         BD bd = new BD();
-        Usuario usuarioBD = bd.ObtenerUsuario(usuario.NombreUsuario);
-
-        if (usuarioBD != null)
+        if (bd.ExisteUsuario(usuario.NombreUsuario))
         {
             ViewBag.Error = "El nombre de usuario ya existe.";
             return View(usuario);
