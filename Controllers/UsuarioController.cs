@@ -10,10 +10,15 @@ public class UsuarioController : Controller
     public IActionResult Index(){
         return View();
     } 
+
     public IActionResult Login(){
-        return View();
+        return View("~/Views/Home/Login.cshtml");
     }
 
+    public IActionResult Registro()
+    {
+        return View("~/Views/Home/Registro.cshtml");
+    }
 
 
     [HttpPost] public IActionResult Login(Usuario usuario)
@@ -37,16 +42,8 @@ public class UsuarioController : Controller
         return View(usuario);
     }
 
-    public IActionResult Registro()
-    {
-        return View();
-    }
-
-
-
     [HttpPost] public IActionResult Registro(Usuario usuario)
     {
-        //Comprobar la base de datos para ver si el nombre de usuario ya existe. Si existe, retornar la vista Registro con un mensaje de error, sino guardar el usuario en la base de datos y redirigir a la vista Login.
         BD bd = new BD();
         if (bd.ExisteUsuario(usuario.NombreUsuario))
         {
@@ -58,27 +55,20 @@ public class UsuarioController : Controller
         return RedirectToAction("Login");
     }
 
-    
-
-
-    //Un metodo  IActionResult Bienvenida(), el cual tenga un IF para HttpContext.Session.GetString("Usuario") == null, y que si lo es, retornar la vista Login, de lo contrario retornar la vista View.)
     public IActionResult Bienvenida()
     {
         if (HttpContext.Session.GetString("Usuario") == null)
         {
             return RedirectToAction("Login");
         }
-        else
-        {
-            return View();
-        }
+
+        return View();
     }
-    
+
     public IActionResult Logout()
     {
         HttpContext.Session.Clear();
-
         return RedirectToAction("Login");
     }
-
 }
+

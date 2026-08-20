@@ -43,9 +43,7 @@ public bool ExisteUsuario(string nombreUsuario)
     {
         string query = @"SELECT * FROM Usuarios WHERE nombreUsuario = @nombreUsuario";
 
-        Usuario usuario = connection.QueryFirstOrDefault<Usuario>(
-            query,
-            new { nombreUsuario }
+        Usuario usuario = connection.QueryFirstOrDefault<Usuario>(query, new { nombreUsuario }
         );
 
         return usuario != null;
