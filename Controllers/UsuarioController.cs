@@ -12,12 +12,12 @@ public class UsuarioController : Controller
     } 
 
     public IActionResult Login(){
-        return View("~/Views/Home/Login.cshtml");
+        return View();
     }
 
     public IActionResult Registro()
     {
-        return View("~/Views/Home/Registro.cshtml");
+        return View();
     }
 
 

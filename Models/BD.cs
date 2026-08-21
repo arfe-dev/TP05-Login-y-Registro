@@ -24,16 +24,25 @@ public Usuario ObtenerUsuario(string nombreUsuario)
 }
 
 
+
 public void RegistrarUsuario(Usuario usuario)
 {
     using (SqlConnection connection = new SqlConnection(_connectionString))
     {
-        string query = @"INSERT INTO Usuario (nombreUsuario, contrasenia, nombre, apellido, TipoUsuario) VALUES(@nombreUsuario, @contrasenia, @nombre, @apellido, @TipoUsuario)";
+        string query = @"INSERT INTO Usuario (nombreUsuario, contrasenia, nombre, apellido, TipoDeUsuario) VALUES (@nombreUsuario, @contrasenia, @nombre, @apellido, @TipoDeUsuario)";
 
-
-        connection.Execute(query, usuario);
+        connection.Execute(query, new
+        {
+            nombreUsuario = usuario.NombreUsuario,
+            contrasenia = usuario.Contraseña,
+            nombre = usuario.Nombre,
+            apellido = usuario.Apellido,
+            TipoDeUsuario = usuario.TipoDeUsuario
+        });
     }
 }
+
+
 
 
 
