@@ -28,7 +28,7 @@ public void RegistrarUsuario(Usuario usuario)
 {
     using (SqlConnection connection = new SqlConnection(_connectionString))
     {
-        string query = @"INSERT INTO Usuario (nombreUsuario, contrasenia, nombre, apellido, tipoUsuario) VALUES(@nombreUsuario, @contrasenia, @nombre, @apellido, @tipoUsuario)";
+        string query = @"INSERT INTO Usuario (nombreUsuario, contrasenia, nombre, apellido, TipoUsuario) VALUES(@nombreUsuario, @contrasenia, @nombre, @apellido, @TipoUsuario)";
 
 
         connection.Execute(query, usuario);
