@@ -15,7 +15,7 @@ public Usuario ObtenerUsuario(string nombreUsuario)
     Usuario miUsuario = null;
     using (SqlConnection connection = new SqlConnection(_connectionString))
     {
-        string query = @"SELECT * FROM Usuarios WHERE nombreUsuario = @nombreUsuario";
+        string query = @"SELECT * FROM Usuario WHERE nombreUsuario = @nombreUsuario";
         miUsuario = connection.QueryFirstOrDefault<Usuario>(query,new { NombreUsuario = nombreUsuario });
     }
     return miUsuario;
@@ -28,7 +28,7 @@ public void RegistrarUsuario(Usuario usuario)
 {
     using (SqlConnection connection = new SqlConnection(_connectionString))
     {
-        string query = @"INSERT INTO Usuarios(nombreUsuario, contraseña, nombre, apellido, tipoUsuario) VALUES(@nombreUsuario, @contraseña, @nombre, @apellido, @tipoUsuario)";
+        string query = @"INSERT INTO Usuario (nombreUsuario, contrasenia, nombre, apellido, tipoUsuario) VALUES(@nombreUsuario, @contrasenia, @nombre, @apellido, @tipoUsuario)";
 
 
         connection.Execute(query, usuario);
@@ -41,7 +41,7 @@ public bool ExisteUsuario(string nombreUsuario)
 {
     using (SqlConnection connection = new SqlConnection(_connectionString))
     {
-        string query = @"SELECT * FROM Usuarios WHERE nombreUsuario = @nombreUsuario";
+        string query = @"SELECT * FROM Usuario WHERE nombreUsuario = @nombreUsuario";
 
         Usuario usuario = connection.QueryFirstOrDefault<Usuario>(query, new { nombreUsuario }
         );
