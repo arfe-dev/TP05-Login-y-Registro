@@ -7,7 +7,7 @@ public class BD
 {
 
 
-private string _connectionString =@"Server=localhost; DataBase = TP5-PROG; Integrated Security = True; TrustServerCertificate = True;";
+private string _connectionString =@"Server=localhost; DataBase = TP05; Integrated Security = True; TrustServerCertificate = True;";
 
 
 public Usuario ObtenerUsuario(string nombreUsuario)
